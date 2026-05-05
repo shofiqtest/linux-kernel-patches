@@ -1,0 +1,36 @@
+From a54fc49814e10ca83f8a48eb9d66ca256c25b7ee Mon Sep 17 00:00:00 2001
+From: Md Shofiqul Islam <shofiqtest@gmail.com>
+Date: Wed, 6 May 2026 01:31:20 +0300
+Subject: [PATCH] fs: gfs2: Fix typos in comments
+
+Fix spelling mistake in comments:
+ - occured -> occurred (twice)
+---
+ fs/gfs2/lock_dlm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/fs/gfs2/lock_dlm.c b/fs/gfs2/lock_dlm.c
+index 7828ad0b6..563bb90a3 100644
+--- a/fs/gfs2/lock_dlm.c
++++ b/fs/gfs2/lock_dlm.c
+@@ -434,7 +434,7 @@ static void gdlm_cancel(struct gfs2_glock *gl)
+  * 10. gfs2_control sets control_lock lvb = new gen + bits for failed jids
+  * 12. gfs2_recover does journal recoveries for failed jids identified above
+  * 14. gfs2_control clears control_lock lvb bits for recovered jids
+- * 15. gfs2_control checks if recover_block == recover_start (step 3 occured
++ * 15. gfs2_control checks if recover_block == recover_start (step 3 occurred
+  *     again) then do nothing, otherwise if recover_start > recover_block
+  *     then clear BLOCK_LOCKS.
+  *
+@@ -812,7 +812,7 @@ static void gfs2_control_func(struct work_struct *work)
+ 
+ 	/*
+ 	 * No more jid bits set in lvb, all recovery is done, unblock locks
+-	 * (unless a new recover_prep callback has occured blocking locks
++	 * (unless a new recover_prep callback has occurred blocking locks
+ 	 * again while working above)
+ 	 */
+ 
+-- 
+2.51.1
+

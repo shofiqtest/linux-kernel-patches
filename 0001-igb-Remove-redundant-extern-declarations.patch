@@ -1,0 +1,28 @@
+From 2fecb2d2d65999e5d67c476374a2c45dc1cfe339 Mon Sep 17 00:00:00 2001
+From: Md Shofiqul Islam <shofiqtest@gmail.com>
+Date: Wed, 6 May 2026 02:01:23 +0300
+Subject: [PATCH] igb: Remove redundant extern declarations
+
+igb_open() and igb_close() are already declared in igb.h which
+is included by igb_main.c. Remove the duplicate extern declarations
+from igb_main.c to avoid redundancy and fix checkpatch warnings.
+---
+ drivers/net/ethernet/intel/igb/igb_main.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
+index ce91dda00..e2691b5c0 100644
+--- a/drivers/net/ethernet/intel/igb/igb_main.c
++++ b/drivers/net/ethernet/intel/igb/igb_main.c
+@@ -108,8 +108,6 @@ static void igb_free_all_rx_resources(struct igb_adapter *);
+ static void igb_setup_mrqc(struct igb_adapter *);
+ static void igb_init_queue_configuration(struct igb_adapter *adapter);
+ static int igb_sw_init(struct igb_adapter *);
+-int igb_open(struct net_device *);
+-int igb_close(struct net_device *);
+ static void igb_configure(struct igb_adapter *);
+ static void igb_configure_tx(struct igb_adapter *);
+ static void igb_configure_rx(struct igb_adapter *);
+-- 
+2.51.1
+

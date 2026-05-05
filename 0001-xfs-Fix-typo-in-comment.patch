@@ -1,0 +1,27 @@
+From 6bc9230f249b5a4c7124460bd4d880df1e399322 Mon Sep 17 00:00:00 2001
+From: Md Shofiqul Islam <shofiqtest@gmail.com>
+Date: Wed, 6 May 2026 01:50:40 +0300
+Subject: [PATCH] xfs: Fix typo in comment
+
+Fix spelling mistake in comment:
+ - occured -> occurred
+---
+ fs/xfs/xfs_notify_failure.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/fs/xfs/xfs_notify_failure.c b/fs/xfs/xfs_notify_failure.c
+index 64c8afb93..b994ff15d 100644
+--- a/fs/xfs/xfs_notify_failure.c
++++ b/fs/xfs/xfs_notify_failure.c
+@@ -350,7 +350,7 @@ xfs_dax_notify_dev_failure(
+ 	/*
+ 	 * Shutdown fs from a force umount in pre-remove case which won't fail,
+ 	 * so errors can be ignored.  Otherwise, shutdown the filesystem with
+-	 * CORRUPT flag if error occured or notify.want_shutdown was set during
++	 * CORRUPT flag if error occurred or notify.want_shutdown was set during
+ 	 * RMAP querying.
+ 	 */
+ 	if (mf_flags & MF_MEM_PRE_REMOVE)
+-- 
+2.51.1
+

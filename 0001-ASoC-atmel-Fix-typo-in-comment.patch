@@ -1,0 +1,27 @@
+From 778d90cd14f91ca949d28c93a3997a3d1b66df02 Mon Sep 17 00:00:00 2001
+From: Md Shofiqul Islam <shofiqtest@gmail.com>
+Date: Wed, 6 May 2026 01:31:21 +0300
+Subject: [PATCH] ASoC: atmel: Fix typo in comment
+
+Fix spelling mistake in comment:
+ - occured -> occurred
+---
+ sound/soc/atmel/atmel-pcm-dma.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sound/soc/atmel/atmel-pcm-dma.c b/sound/soc/atmel/atmel-pcm-dma.c
+index 7306e04da..e4b73ae3d 100644
+--- a/sound/soc/atmel/atmel-pcm-dma.c
++++ b/sound/soc/atmel/atmel-pcm-dma.c
+@@ -47,7 +47,7 @@ static const struct snd_pcm_hardware atmel_pcm_dma_hardware = {
+  * atmel_pcm_dma_irq: SSC interrupt handler for DMAENGINE enabled SSC
+  *
+  * We use DMAENGINE to send/receive data to/from SSC so this ISR is only to
+- * check if any overrun occured.
++ * check if any overrun occurred.
+  */
+ static void atmel_pcm_dma_irq(u32 ssc_sr,
+ 	struct snd_pcm_substream *substream)
+-- 
+2.51.1
+

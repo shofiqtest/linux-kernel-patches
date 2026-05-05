@@ -1,0 +1,41 @@
+From 0dd7015b4393f64362be719a906663b7760ba822 Mon Sep 17 00:00:00 2001
+From: Md Shofiqul Islam <shofiqtest@gmail.com>
+Date: Wed, 6 May 2026 01:27:06 +0300
+Subject: [PATCH] power: supply: Fix typos in comments
+
+Fix spelling mistake in comments:
+ - occured -> occurred (twice)
+---
+ drivers/power/supply/ab8500_fg.c      | 2 +-
+ drivers/power/supply/smb347-charger.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/power/supply/ab8500_fg.c b/drivers/power/supply/ab8500_fg.c
+index 9dd997226..eb5c1ae68 100644
+--- a/drivers/power/supply/ab8500_fg.c
++++ b/drivers/power/supply/ab8500_fg.c
+@@ -2037,7 +2037,7 @@ static irqreturn_t ab8500_fg_cc_convend_handler(int irq, void *_di)
+ }
+ 
+ /**
+- * ab8500_fg_batt_ovv_handler() - Battery OVV occured
++ * ab8500_fg_batt_ovv_handler() - Battery OVV occurred
+  * @irq:       interrupt number
+  * @_di:       pointer to the ab8500_fg structure
+  *
+diff --git a/drivers/power/supply/smb347-charger.c b/drivers/power/supply/smb347-charger.c
+index 8b95f7e87..fc3f90ef2 100644
+--- a/drivers/power/supply/smb347-charger.c
++++ b/drivers/power/supply/smb347-charger.c
+@@ -1083,7 +1083,7 @@ static int smb347_get_charging_status(struct smb347_charger *smb,
+ 		} else {
+ 			/*
+ 			 * in this case no charger error or termination
+-			 * occured but charging is not in progress!!!
++			 * occurred but charging is not in progress!!!
+ 			 */
+ 			status = POWER_SUPPLY_STATUS_NOT_CHARGING;
+ 		}
+-- 
+2.51.1
+

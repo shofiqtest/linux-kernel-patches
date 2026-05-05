@@ -1,0 +1,50 @@
+From 942df41f2009b7318211d794a7ce6a41935fb113 Mon Sep 17 00:00:00 2001
+From: Md Shofiqul Islam <shofiqtest@gmail.com>
+Date: Wed, 6 May 2026 01:53:16 +0300
+Subject: [PATCH] scsi: storvsc: Replace symbolic permissions with octal
+
+Symbolic permissions like S_IRUGO and S_IWUSR are deprecated.
+Replace with their octal equivalents as preferred by checkpatch:
+ - S_IRUGO|S_IWUSR -> 0644
+ - S_IRUGO         -> 0444 (3 instances)
+---
+ drivers/scsi/storvsc_drv.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/scsi/storvsc_drv.c b/drivers/scsi/storvsc_drv.c
+index 6977ca8a0..571ea5491 100644
+--- a/drivers/scsi/storvsc_drv.c
++++ b/drivers/scsi/storvsc_drv.c
+@@ -156,7 +156,7 @@ static bool hv_dev_is_fc(struct hv_device *hv_dev);
+ #define STORVSC_LOGGING_WARN	2
+ 
+ static int logging_level = STORVSC_LOGGING_ERROR;
+-module_param(logging_level, int, S_IRUGO|S_IWUSR);
++module_param(logging_level, int, 0644);
+ MODULE_PARM_DESC(logging_level,
+ 	"Logging level, 0 - None, 1 - Error (default), 2 - Warning.");
+ 
+@@ -345,17 +345,17 @@ static int storvsc_change_queue_depth(struct scsi_device *sdev, int queue_depth)
+ static int storvsc_vcpus_per_sub_channel = 4;
+ static unsigned int storvsc_max_hw_queues;
+ 
+-module_param(storvsc_ringbuffer_size, int, S_IRUGO);
++module_param(storvsc_ringbuffer_size, int, 0444);
+ MODULE_PARM_DESC(storvsc_ringbuffer_size, "Ring buffer size (bytes)");
+ 
+ module_param(storvsc_max_hw_queues, uint, 0644);
+ MODULE_PARM_DESC(storvsc_max_hw_queues, "Maximum number of hardware queues");
+ 
+-module_param(storvsc_vcpus_per_sub_channel, int, S_IRUGO);
++module_param(storvsc_vcpus_per_sub_channel, int, 0444);
+ MODULE_PARM_DESC(storvsc_vcpus_per_sub_channel, "Ratio of VCPUs to subchannels");
+ 
+ static int ring_avail_percent_lowater = 10;
+-module_param(ring_avail_percent_lowater, int, S_IRUGO);
++module_param(ring_avail_percent_lowater, int, 0444);
+ MODULE_PARM_DESC(ring_avail_percent_lowater,
+ 		"Select a channel if available ring size > this in percent");
+ 
+-- 
+2.51.1
+

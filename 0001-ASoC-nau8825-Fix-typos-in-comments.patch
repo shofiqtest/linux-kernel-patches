@@ -1,0 +1,50 @@
+From a073193189c3044dc3bcbe4e9c4317283553d4a8 Mon Sep 17 00:00:00 2001
+From: Md Shofiqul Islam <shofiqtest@gmail.com>
+Date: Wed, 6 May 2026 01:13:16 +0300
+Subject: [PATCH] ASoC: nau8825: Fix typos in comments
+
+Fix spelling mistakes in comments:
+ - suppresstion -> suppression (twice)
+ - funciton -> function (twice)
+ - imedance -> impedance
+ - tak -> talk
+---
+ sound/soc/codecs/nau8825.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/sound/soc/codecs/nau8825.c b/sound/soc/codecs/nau8825.c
+index dd3528537..80964d58b 100644
+--- a/sound/soc/codecs/nau8825.c
++++ b/sound/soc/codecs/nau8825.c
+@@ -712,8 +712,8 @@ static void nau8825_xtalk_measure(struct nau8825 *nau8825)
+ 		/* In left headphone IMM state, read out left headphone
+ 		 * impedance measure result, and delay some time to wait
+ 		 * detection sine wave output finish. Then, we can calculate
+-		 * the cross talk suppresstion side tone according to the L/R
+-		 * headphone imedance.
++		 * the cross talk suppression side tone according to the L/R
++		 * headphone impedance.
+ 		 */
+ 		regmap_read(nau8825->regmap, NAU8825_REG_IMM_RMS_L,
+ 			&nau8825->imp_rms[NAU8825_XTALK_HPL_R2L]);
+@@ -2237,7 +2237,7 @@ static void nau8825_component_remove(struct snd_soc_component *component)
+ {
+ 	struct nau8825 *nau8825 = snd_soc_component_get_drvdata(component);
+ 
+-	/* Cancel and reset cross tak suppresstion detection funciton */
++	/* Cancel and reset cross talk suppression detection function */
+ 	nau8825_xtalk_cancel(nau8825);
+ }
+ 
+@@ -2651,7 +2651,7 @@ static int nau8825_set_bias_level(struct snd_soc_component *component,
+ 		/* ground HPL/HPR, MICGRND1/2 */
+ 		regmap_update_bits(nau8825->regmap,
+ 			NAU8825_REG_HSD_CTRL, 0xf, 0xf);
+-		/* Cancel and reset cross talk detection funciton */
++		/* Cancel and reset cross talk detection function */
+ 		nau8825_xtalk_cancel(nau8825);
+ 		/* Turn off all interruptions before system shutdown. Keep the
+ 		 * interruption quiet before resume setup completes.
+-- 
+2.51.1
+
